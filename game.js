@@ -104,7 +104,7 @@ function checkAnswer(currentLevel) {
     }, 200);
 
     //3. Change the h1 title to say "Game Over, Press Any Key to Restart" if the user got the answer wrong.
-    $("#level-title").text("Game Over, Press Any Key to Restart");
+    $("#level-title").text("Game Over, Press Any Key or Tap Anywhere to Restart");
     startOver();
   }
 
@@ -117,4 +117,5 @@ function startOver(){
     started = false;
     userClickedPattern = [];    
 }
+
 
