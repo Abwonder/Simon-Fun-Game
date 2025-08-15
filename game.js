@@ -10,13 +10,33 @@ var started = false;
 //2. Create a new variable called level and start at level 0.
 var level = 0;
 
-//1. Use jQuery to detect when a keyboard key has been pressed, when that happens for the first time, call nextSequence().
-$(document).keypress(function () {
+// //1. Use jQuery to detect when a keyboard key has been pressed, when that happens for the first time, call nextSequence().
+// $(document).keypress(function () {
+//   if (!started) {
+//     //3. The h1 title starts out saying "Press A Key to Start", when the game has started, change this to say "Level 0".
+//     $("#level-title").text("Level " + level);
+//     nextSequence();
+//     started = true;
+//   }
+// });
+
+// Function to start the game
+function startGame() {
   if (!started) {
-    //3. The h1 title starts out saying "Press A Key to Start", when the game has started, change this to say "Level 0".
     $("#level-title").text("Level " + level);
     nextSequence();
     started = true;
+  }
+}
+
+// Start on keypress (laptop/desktop)
+$(document).keypress(startGame);
+
+// Start on click/tap (mobile)
+$(document).click(function(e){
+  // Optional: ignore clicks on the buttons so they don't trigger start
+  if (!$(e.target).hasClass("btn")) {
+    startGame();
   }
 });
 
@@ -97,3 +117,4 @@ function startOver(){
     started = false;
     userClickedPattern = [];    
 }
+
